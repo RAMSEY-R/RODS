@@ -4,4 +4,6 @@ Date: 2003-04-01
 Title: R Orcale Database Scripts
 Author@R: c(person("Eric","Fletcher", role=c("aut","cre")))
 License: LGPL (>= 2.0, < 3)
-Description:This is a R-programming Language script pack that eases R users to import data from Oracle database systems using the common functionalities of RODBC and DBI/ROracle packages without their intricacies.
+Depends: R (>= 2.14)
+Description:This is a front-end application that eases R users to import data from Oracle database systems using the common functionalities of DBI/ROracle packages without their intricacies.
+URL:https://github.com/estuff02/RODS
