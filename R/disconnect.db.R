@@ -1,9 +1,7 @@
 # disconnect.db.R
 # Description:
 # Closes the connection to the Database
-# 
-# Author: Eric
-###############################################################################
+
 
 
 disconnect.db <- function(con){
