@@ -9,10 +9,15 @@ connect.db <- function (dsn,uid,pwd,gui=FALSE) {
 	cat("Establishing connection to Database ... \n")
 	if(gui){
 		#tk gui
-		convar <- dialog.login()
-		user <- convar$uid
-		pwd <-convar$pwd
-		
+		tryCatch({
+			convar <- dialog.login()
+			user <- convar$uid
+			pwd <-convar$pwd
+		}, error = function(err) {
+			print(err)
+		}, finally = {
+			rm(convar)
+		})
 	}else{
 		#Command Line
 		ora <- dbDriver("Oracle")
@@ -30,5 +35,8 @@ connect.db <- function (dsn,uid,pwd,gui=FALSE) {
 	con <- dbConnect(ora,user=user,password=pwd,dbname=dsn)
 	
 	cat("Connected to database",dsn,"\n")
+	
+	rm(user,pwd)
+	
 	invisible(con)
 }
